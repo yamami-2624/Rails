@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers3</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/50fc84eebf.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <h1 class="headline">
+      <a>Bookers</a></h1>
+      <div class="social">
+    <% if user_signed_in? %>
+          <i class="fas fa-home"></i>
+          <%= link_to "Home", user_path(current_user.id) %>
+          <i class="fas fa-user"></i>
+          <%= link_to "Users", users_path %>
+          <i class="fas fa-book"></i>
+          <%= link_to "Books", books_path %>
+          <i class="fas fa-sign-in-alt"></i>
+          <%= link_to "logout", destroy_user_session_path %>
+    <% else %>
+          <i class="fas fa-home"></i>
+          <%= link_to "Home", top_path %>
+          <i class="fas fa-link"></i>
+          <%= link_to "About", top_path %>
+          <i class="fas fa-edit"></i>
+          <%= link_to "sign up", new_user_registration_path %>
+          <i class="fas fa-sign-in-alt"></i>
+          <%= link_to "login", new_user_session_path %>
+    <% end %>
+  </div>
+  </header>
+  <body>
+   <% if @book.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+</body>
+
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>
+
+<!-- <style>
+  a{
+    color: white;
+  }
+</style> -->
+<!-- ヘッダーのlink_todだけ色を変える方法を探す -->
+
+
+
+
+
+
+
+<!-- ログイン -->
+<!-- <i class="fas fa-sign-in-alt"></i> -->
+
+<!-- サインイン -->
+<!-- <i class="fas fa-edit"></i> -->
+
+<!-- アバウト -->
+<!-- <i class="fas fa-link"></i> -->

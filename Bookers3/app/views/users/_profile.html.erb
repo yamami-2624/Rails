@@ -1,0 +1,26 @@
+<table class="table table-striped">
+<h1>User info</h1>
+<div class="profile-container">
+  <thead>
+    <tr>
+      <div class="profile-container">
+<%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb" %>
+      </div>
+    </tr>
+
+    <tr>
+      <td>name</td>
+      <td><div class="profile-name"><%= current_user.name %></div></td>
+    </tr>
+
+    <tr>
+      <td>introduce</td>
+      <td><div class="profile-introduction"><%= current_user.introduction %></div></td>
+    </tr>
+
+    <td><p><%= link_to "EDIT", edit_user_path(current_user), class: "pull-right" %></p></td>
+  </thead>
+</div>
+</table>
+
+
