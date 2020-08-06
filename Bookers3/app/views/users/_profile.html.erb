@@ -9,18 +9,24 @@
     </tr>
 
     <tr>
-      <td>name</td>
-      <td><div class="profile-name"><%= current_user.name %></div></td>
-    </tr>
+      <th>name</th>
+      <th><div class="profile-name"><%= current_user.name %></div></th>
+    </tr></div>
 
     <tr>
-      <td>introduce</td>
-      <td><div class="profile-introduction"><%= current_user.introduction %></div></td>
+      <th>introduce</th>
+      <th><div class="profile-introduction"><%= current_user.introduction %></div></th>
     </tr>
 
-    <td><p><%= link_to "EDIT", edit_user_path(current_user), class: "pull-right" %></p></td>
+    <div>
+  <!--   <button type="button" class="btn btn-primary btn-block"> -->
+      <%= link_to "Edit", edit_user_path(current_user), class: "btn btn-primary btn-block" %>
+  </div>
+
   </thead>
 </div>
 </table>
+
+
 
 

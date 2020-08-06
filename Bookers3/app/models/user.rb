@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
          attachment :profile_image
          has_many :books, dependent: :destroy
+         validates :name, length: { in: 2..75 }
 end

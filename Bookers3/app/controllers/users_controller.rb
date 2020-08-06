@@ -1,15 +1,16 @@
 class UsersController < ApplicationController
 	def show
         @book = Book.new
-        @user = User.find(params[:id])
+        # @user = User.find(params[:id])
         #user一覧ページからshowリンクを押して来たときにそのユーザーに関連付いたbooksを取り出すために
         # まず@userのidを取得する必要があるのかも
+        @user = User.find(params[:id])
         @books = @user.books
 
 	end
 
 	def edit
-		@user = User.find(params[:id])
+		@user = current_user
 	end
 
 	def index
